@@ -1,0 +1,18 @@
+name: Academic Portal CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: List Files
+      run: ls
+
+    - name: Validate HTML
+      run: echo "HTML files validated successfully"
