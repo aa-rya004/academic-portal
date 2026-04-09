@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Register</title>
+<link rel="stylesheet" href="style.css">
+
+<script>
+// Dynamic course update
+function updateCourses() {
+    let category = document.getElementById("category").value;
+    let course = document.getElementById("course");
+
+    course.innerHTML = ""; // clear previous options
+
+    let options = [];
+
+    if (category === "cs") {
+        options = ["Web Development", "Data Structures", "Artificial Intelligence"];
+    } 
+    else if (category === "business") {
+        options = ["Marketing", "Finance", "Human Resource"];
+    } 
+    else if (category === "engineering") {
+        options = ["Mechanical", "Civil", "Electrical"];
+    }
+
+    options.forEach(function(item) {
+        let opt = document.createElement("option");
+        opt.value = item;
+        opt.text = item;
+        course.appendChild(opt);
+    });
+}
+
+// Validation
+function validateForm() {
+    let name = document.forms["regForm"]["name"].value;
+    let email = document.forms["regForm"]["email"].value;
+
+    if (name === "" || email === "") {
+        alert("All fields are required!");
+        return false;
+    }
+
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if (!email.match(emailPattern)) {
+        alert("Enter valid email!");
+        return false;
+    }
+
+    alert("🎉 Registration Successful!");
+    return true;
+}
+</script>
+</head>
+
+<body>
+
+<div class="top-header">
+<img src="bharati_vidyapeeth_logo.png">
+<div>
+<p><b>Aarya Dharmadhikari</b></p>
+<p>Roll No: 09 | PRN: 2314110283</p>
+</div>
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="courses.html">Courses</a>
+<a href="resources.html">Resources</a>
+<a href="register.html">Register</a>
+<a href="contact.html">Contact</a>
+
+</nav>
+
+<section>
+<h2>📝 Student Registration</h2>
+
+<form name="regForm" onsubmit="return validateForm()">
+
+<label>Full Name:</label><br>
+<input type="text" name="name"><br><br>
+
+<label>Email:</label><br>
+<input type="text" name="email"><br><br>
+
+<label>Password:</label><br>
+<input type="password" name="password"><br><br>
+
+<label>Select Field:</label><br>
+<select id="category" onchange="updateCourses()">
+<option value="">--Select Field--</option>
+<option value="cs">Computer Science</option>
+<option value="business">Business Management</option>
+<option value="engineering">Engineering</option>
+</select><br><br>
+
+<label>Select Course:</label><br>
+<select id="course">
+<option>--Select Course--</option>
+</select><br><br>
+
+<input type="submit" value="Register">
+
+</form>
+</section>
+
+<footer>
+<p>© 2026 Academic Portal</p>
+<div class="signature">Aarya.D ✍️</div>
+</footer>
+
+</body>
+</html>

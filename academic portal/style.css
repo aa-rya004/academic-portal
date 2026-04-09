@@ -1,0 +1,14 @@
+body{font-family:Poppins,sans-serif;background:linear-gradient(135deg,#e3f2fd,#ffffff);margin:0;}
+
+.top-header{background:#003366;color:white;padding:10px;display:flex;gap:10px;align-items:center;}
+.top-header img{width:50px;border-radius:50%;}
+
+header{text-align:center;padding:15px;color:#003366;}
+
+nav{text-align:center;background:white;padding:10px;}
+nav a{margin:10px;text-decoration:none;color:#003366;font-weight:bold;}
+
+section{background:white;margin:20px;padding:20px;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1);} 
+
+footer{background:#003366;color:white;text-align:center;padding:10px;position:relative;}
+.signature{position:absolute;right:10px;bottom:5px;font-family:cursive;}

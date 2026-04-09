@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Resources</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+.resource {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+.resource img {
+    width: 40px;
+    margin-right: 10px;
+}
+</style>
+
+<script>
+function updateCourses() {
+    let category = document.getElementById("category").value;
+    let course = document.getElementById("course");
+
+    course.innerHTML = "<option>--Select Course--</option>";
+
+    let options = [];
+
+    if (category === "cs") {
+        options = ["Web Development", "Data Structures", ];
+    } 
+    else if (category === "business") {
+        options = ["Marketing", "Finance", ];
+    } 
+    else if (category === "engineering") {
+        options = ["Mechanical", "Civil",];
+    }
+
+    options.forEach(function(item) {
+        let opt = document.createElement("option");
+        opt.value = item;
+        opt.text = item;
+        course.appendChild(opt);
+    });
+}
+
+function showResources() {
+    let course = document.getElementById("course").value;
+    let container = document.getElementById("resourcesList");
+
+    container.innerHTML = ""; // clear previous
+
+    let resources = [];
+
+    if (course === "Web Development") {
+        resources = [
+            {name: "W3Schools", link: "https://www.w3schools.com", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"},
+            {name: "MDN Docs", link: "https://developer.mozilla.org", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"}
+        ];
+    }
+    else if (course === "Data Structures") {
+        resources = [
+            {name: "GeeksforGeeks", link: "https://www.geeksforgeeks.org", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"},
+            {name: "LeetCode", link: "https://leetcode.com", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"}
+        ];
+    }
+    else if (course === "Marketing") {
+        resources = [
+            {name: "HubSpot", link: "https://www.hubspot.com", img: "https://cdn-icons-png.flaticon.com/512/5968/5968879.png"}
+        ];
+    }
+    else if (course === "Finance") {
+        resources = [
+            {name: "Investopedia", link: "https://www.investopedia.com", img: "https://cdn-icons-png.flaticon.com/512/2331/2331943.png"}
+        ];
+    }
+    else if (course === "Mechanical") {
+        resources = [
+            {name: "Engineering Toolbox", link: "https://www.engineeringtoolbox.com", img: "https://cdn-icons-png.flaticon.com/512/1995/1995574.png"}
+        ];
+    }
+    else if (course === "Civil") {
+    resources = [
+        {name: "Civil Engineering Portal", link: "https://www.engineeringcivil.com", img: "https://cdn-icons-png.flaticon.com/512/1995/1995574.png"},
+        {name: "The Constructor", link: "https://theconstructor.org", img: "https://cdn-icons-png.flaticon.com/512/1048/1048953.png"}
+    ];
+}
+
+    resources.forEach(function(item) {
+        let div = document.createElement("div");
+        div.className = "resource";
+
+        div.innerHTML = `
+            <img src="${item.img}">
+            <a href="${item.link}" target="_blank">${item.name}</a>
+        `;
+
+        container.appendChild(div);
+    });
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="top-header">
+<img src="bharati_vidyapeeth_logo.png">
+<div>
+<p><b>Aarya Dharmadhikari</b></p>
+<p>Roll No: 09 | PRN: 2314110283</p>
+</div>
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="courses.html">Courses</a>
+<a href="resources.html">Resources</a>
+<a href="register.html">Register</a>
+<a href="contact.html">Contact</a>
+
+</nav>
+
+<section>
+<h2>🔗 Smart Resources</h2>
+
+<label>Select Field:</label><br>
+<select id="category" onchange="updateCourses()">
+<option value="">--Select Field--</option>
+<option value="cs">Computer Science</option>
+<option value="business">Business Management</option>
+<option value="engineering">Engineering</option>
+</select><br><br>
+
+<label>Select Course:</label><br>
+<select id="course" onchange="showResources()">
+<option>--Select Course--</option>
+</select>
+
+<div id="resourcesList"></div>
+
+</section>
+
+<footer>
+<p>© 2026 Academic Portal</p>
+<div class="signature">Aarya.D ✍️</div>
+</footer>
+
+</body>
+</html>
