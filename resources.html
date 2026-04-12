@@ -2,30 +2,17 @@
 <html>
 <head>
 <title>Resources</title>
+
+<link rel="stylesheet" href="style.css">
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WV5E0R029X"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-
   gtag('js', new Date());
-
-  gtag('config', 'G-WV5E0R029X', {
-    send_page_view: true
-  });
+  gtag('config', 'G-WV5E0R029X', { send_page_view: true });
 </script>
-<style>
-.resource {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10px;
-}
-.resource img {
-    width: 40px;
-    margin-right: 10px;
-}
-</style>
 
 <script>
 function updateCourses() {
@@ -37,13 +24,13 @@ function updateCourses() {
     let options = [];
 
     if (category === "cs") {
-        options = ["Web Development", "Data Structures", ];
+        options = ["Web Development", "Data Structures"];
     } 
     else if (category === "business") {
-        options = ["Marketing", "Finance", ];
+        options = ["Marketing", "Finance"];
     } 
     else if (category === "engineering") {
-        options = ["Mechanical", "Civil",];
+        options = ["Mechanical", "Civil"];
     }
 
     options.forEach(function(item) {
@@ -58,50 +45,49 @@ function showResources() {
     let course = document.getElementById("course").value;
     let container = document.getElementById("resourcesList");
 
-    container.innerHTML = ""; // clear previous
+    container.innerHTML = "";
 
     let resources = [];
 
     if (course === "Web Development") {
         resources = [
-            {name: "W3Schools", link: "https://www.w3schools.com", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"},
-            {name: "MDN Docs", link: "https://developer.mozilla.org", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"}
+            {name: "W3Schools", link: "https://www.w3schools.com"},
+            {name: "MDN Docs", link: "https://developer.mozilla.org"}
         ];
     }
     else if (course === "Data Structures") {
         resources = [
-            {name: "GeeksforGeeks", link: "https://www.geeksforgeeks.org", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"},
-            {name: "LeetCode", link: "https://leetcode.com", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"}
+            {name: "GeeksforGeeks", link: "https://www.geeksforgeeks.org"},
+            {name: "LeetCode", link: "https://leetcode.com"}
         ];
     }
     else if (course === "Marketing") {
         resources = [
-            {name: "HubSpot", link: "https://www.hubspot.com", img: "https://cdn-icons-png.flaticon.com/512/5968/5968879.png"}
+            {name: "HubSpot", link: "https://www.hubspot.com"}
         ];
     }
     else if (course === "Finance") {
         resources = [
-            {name: "Investopedia", link: "https://www.investopedia.com", img: "https://cdn-icons-png.flaticon.com/512/2331/2331943.png"}
+            {name: "Investopedia", link: "https://www.investopedia.com"}
         ];
     }
     else if (course === "Mechanical") {
         resources = [
-            {name: "Engineering Toolbox", link: "https://www.engineeringtoolbox.com", img: "https://cdn-icons-png.flaticon.com/512/1995/1995574.png"}
+            {name: "Engineering Toolbox", link: "https://www.engineeringtoolbox.com"}
         ];
     }
     else if (course === "Civil") {
-    resources = [
-        {name: "Civil Engineering Portal", link: "https://www.engineeringcivil.com", img: "https://cdn-icons-png.flaticon.com/512/1995/1995574.png"},
-        {name: "The Constructor", link: "https://theconstructor.org", img: "https://cdn-icons-png.flaticon.com/512/1048/1048953.png"}
-    ];
-}
+        resources = [
+            {name: "Civil Engineering Portal", link: "https://www.engineeringcivil.com"},
+            {name: "The Constructor", link: "https://theconstructor.org"}
+        ];
+    }
 
     resources.forEach(function(item) {
         let div = document.createElement("div");
-        div.className = "resource";
+        div.className = "resource-box";
 
         div.innerHTML = `
-            <img src="${item.img}">
             <a href="${item.link}" target="_blank">${item.name}</a>
         `;
 
@@ -128,7 +114,6 @@ function showResources() {
 <a href="resources.html">Resources</a>
 <a href="register.html">Register</a>
 <a href="contact.html">Contact</a>
-
 </nav>
 
 <section>
@@ -145,7 +130,7 @@ function showResources() {
 <label>Select Course:</label><br>
 <select id="course" onchange="showResources()">
 <option>--Select Course--</option>
-</select>
+</select><br><br>
 
 <div id="resourcesList"></div>
 
